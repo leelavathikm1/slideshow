@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<img src="images/1.jpg" id="image" style="height: 500px; width: 500px">
+	<br/>
+	<input type="button" name="">
+	<input type="button" value="start slide show" onclick="startSlideShow()">
+	<input type="button" value="stop slide show" onclick="stopSlideShow()">
+	<br/>
+	<div id="result"></div>
+
+		<script type="text/javascript">
+			function changeImage() {
+				var imageSrc = document.getElementById("image").getAttribute("src");
+				var imageNumber = imageSrc.substring(imageSrc.indexOf("/")+1 , imageSrc.indexOf("/")+2)
+				
+				imageNumber++ 
+				document.getElementById("image").setAttribute("src" , "images/" + imageNumber +".jpg")
+
+				
+				 console.log(imageNumber);
+
+
+			}
+			var intervalId;
+
+			function startSlideShow() {
+				intervalId = setInterval(changeImage,1000);
+			}
+			function stopSlideShow() {
+				clearInterval(intervalId);
+			}
+		</script>
+</body>
+</html>
